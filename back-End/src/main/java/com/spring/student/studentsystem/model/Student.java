@@ -9,6 +9,8 @@ import com.spring.student.studentsystem.model.enums.Gender;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -18,10 +20,11 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     
-    @Column(name = id)
+    @Column(name = "id")
     private Long id;
     @Column(name = "Full_name")
     private String fullName;
+    @Enumerated(EnumType.STRING)
     @Column(name = "gender")
     private Gender gender;
     @Column(name = "phone_number")

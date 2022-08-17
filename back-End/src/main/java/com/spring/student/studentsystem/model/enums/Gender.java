@@ -1,8 +1,8 @@
 package com.spring.student.studentsystem.model.enums;
 
-public class Gender {
+public enum Gender {
 
-// MALE,FEMALE
+MALE,FEMALE
 
     
 }
