@@ -3,9 +3,7 @@ package com.spring.student.model;
 import java.util.Date;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import com.spring.student.model.enums.Gender;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -45,5 +43,4 @@ public class Student {
     @UpdateTimestamp
     @Column(name = "date_updated")
     private Date dateUpdated;
- 
 }
