@@ -1,12 +1,9 @@
 package com.spring.student.studentsystem.model;
 
 import java.util.Date;
-
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import com.spring.student.studentsystem.model.enums.Gender;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
