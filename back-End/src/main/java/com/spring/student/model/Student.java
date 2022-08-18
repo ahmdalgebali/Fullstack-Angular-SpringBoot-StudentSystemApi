@@ -1,9 +1,11 @@
-package com.spring.student.studentsystem.model;
+package com.spring.student.model;
 
 import java.util.Date;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import com.spring.student.studentsystem.model.enums.Gender;
+
+import com.spring.student.model.enums.Gender;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -24,7 +26,6 @@ import lombok.Setter;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
     @Column(name = "id")
     private Long id;
     @Column(name = "Full_name")
