@@ -8,7 +8,7 @@
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
+    "noImplicitReturns": true,//<<<true
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
@@ -21,7 +21,9 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ]/*,
+    // حطيت ال , اللى فوق + السطر اللى تحت
+    "strictPropertyInitialization": false      */
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
