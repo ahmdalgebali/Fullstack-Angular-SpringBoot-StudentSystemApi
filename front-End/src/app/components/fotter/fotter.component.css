@@ -1,0 +1,15 @@
+.card
+{
+ background-color:rgba(0,0,0,.7);
+ color:white;
+ position:absolute;
+ bottom:0;
+ width:100%;
+}
+
+.card-footer
+{
+ font-weight:bold;
+ color:white!important;
+ font-size:15px;
+}
