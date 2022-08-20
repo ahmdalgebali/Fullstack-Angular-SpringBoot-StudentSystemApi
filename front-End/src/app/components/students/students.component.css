@@ -3,3 +3,14 @@
 margin-top: 50px;
 
 }
+.btn-success
+{
+
+    margin-right: 5px;
+}
+.btn-danger
+{
+
+    font-size: 20px;
+    margin: 15px;
+}
