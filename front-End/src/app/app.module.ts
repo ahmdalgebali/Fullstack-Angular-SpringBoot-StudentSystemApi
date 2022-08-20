@@ -8,6 +8,15 @@ import { FotterComponent } from './components/fotter/fotter.component';
 import { RegisterComponent } from './components/register/register.component';
 import { StudentsComponent } from './components/students/students.component';
 import { OptionsComponent } from './components/options/options.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {path:'register', component:RegisterComponent},
+  {path:'options',  component:OptionsComponent },
+  {path:'students', component:StudentsComponent},
+  {path:'**', component:StudentsComponent} 
+
+];
 
 @NgModule({
   declarations: [
@@ -20,6 +29,7 @@ import { OptionsComponent } from './components/options/options.component';
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(routes),
     AppRoutingModule
   ],
   providers: [],
