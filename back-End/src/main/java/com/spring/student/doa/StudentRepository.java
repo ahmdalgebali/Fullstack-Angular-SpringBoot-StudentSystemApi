@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import com.spring.student.model.Student;
 
+// @RepositoryRestResource(collectionResourceRel ="fdf" ,path ="ddd" )
 @RepositoryRestResource
 public interface StudentRepository extends JpaRepository <Student,Long> {
 
