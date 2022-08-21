@@ -13,7 +13,8 @@ export class StudentsComponent implements OnInit {
   constructor(private studentService:StudentService) { }
 
   ngOnInit(): void {
-    // TODO document why this method 'ngOnInit' is empty
+    this.getStudent();
+
   }
 
   getStudent(){
