@@ -10,12 +10,14 @@ import { StudentsComponent } from './components/students/students.component';
 import { OptionsComponent } from './components/options/options.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { RouteActivatedService } from './services/route-activated.service';
 
 const routes: Routes = [
   {path:'register', component:RegisterComponent},
-  {path:'options',  component:OptionsComponent },
-  {path:'students', component:StudentsComponent},
-  {path:'**', component:StudentsComponent} 
+  {path:'options',  component:OptionsComponent,canActivate:[RouteActivatedService] },
+  {path:'students', component:StudentsComponent,canActivate:[RouteActivatedService]},
+  {path:' ', component:StudentsComponent,canActivate:[RouteActivatedService]},
+  {path:'**', component:StudentsComponent,canActivate:[RouteActivatedService]} 
 
 ];
 
