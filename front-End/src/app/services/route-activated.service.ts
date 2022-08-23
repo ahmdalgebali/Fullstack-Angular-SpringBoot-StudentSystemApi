@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { LoginService } from './login.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RouteActivatedService {
+export class RouteActivatedService implements CanActivate {
   constructor(private serviceLogin: LoginService,
               private route: Router) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

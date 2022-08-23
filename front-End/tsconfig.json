@@ -5,7 +5,7 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
+    "strict": true,//<<<true
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,//<<<true
@@ -21,9 +21,9 @@
     "lib": [
       "es2020",
       "dom"
-    ]/*,
+    ],
     // حطيت ال , اللى فوق + السطر اللى تحت
-    "strictPropertyInitialization": false      */
+    "strictPropertyInitialization": false      
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

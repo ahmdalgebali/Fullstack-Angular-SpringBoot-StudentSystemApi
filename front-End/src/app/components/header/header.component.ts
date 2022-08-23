@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private loginService:LoginService) { }
+  constructor(private loginService:LoginService,
+              private route: Router) { }
 
   ngOnInit(): void {
     // TODO document why this method 'ngOnInit' is empty
@@ -16,7 +18,13 @@ export class HeaderComponent implements OnInit {
   }
 
   isAuthenticaterUser(){
-    // return this.isAuthenticaterUser();
+    return this.loginService.isLogin();
+  }
+
+  logOut(){
+    this.loginService.logOut();
+    this.route.navigateByUrl('register');
+
   }
 
 }
