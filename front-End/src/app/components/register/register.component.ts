@@ -24,7 +24,6 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-
   get userName(){
     return this.logInFormGroup.get('admin.userName')
   }
@@ -35,6 +34,7 @@ export class RegisterComponent implements OnInit {
   
   OnSubmit() {
     this.loginService.Login(this.userName?.value,this.password?.value)
+    this.route.navigateByUrl('students');
       // console.log(this.userName?.value)
       // console.log(this.password?.value)
   }
