@@ -6,20 +6,15 @@ import { LoginService } from './login.service';
 @Injectable({
   providedIn: 'root'
 })
-export class RouteActivatedService implements CanActivate {
+export class LoginActivatedService implements CanActivate {
   constructor(private serviceLogin: LoginService,
     private route: Router) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.serviceLogin.isLogin()) {
-      return true;
+      this.route.navigateByUrl('/students');
+      return false;
     }
-    this.route.navigateByUrl('/content');
-    return false;
+    
+    return true;
   }
-
-
 }
-
-
-
-
