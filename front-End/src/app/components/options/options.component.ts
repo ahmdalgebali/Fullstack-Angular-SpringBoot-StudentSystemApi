@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Student } from 'src/app/model/student';
+import { StudentService } from 'src/app/services/student.service';
 
 @Component({
   selector: 'app-options',
@@ -9,7 +12,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class OptionsComponent implements OnInit {
   StudentGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+    private studentService:StudentService , 
+    private router:Router) { }
 
   ngOnInit(): void {
 
@@ -27,28 +32,34 @@ export class OptionsComponent implements OnInit {
   }
 
 
-  get fullName(){
-    return this.StudentGroup.get('student.fullName')
+  getfullName(){
+    return this.StudentGroup.get("student")?.value.fullName
   }
-  get Age(){
-    return this.StudentGroup.get('student.Age')
+  getAge(){
+    return this.StudentGroup.get("student")?.value.Age
   }
-  get Address(){
-    return this.StudentGroup.get('student.Address')
+  getAddress(){
+    return this.StudentGroup.get("student")?.value.Address
   }
-  get phoneNumber(){
-    return this.StudentGroup.get('student.phoneNumber')
+  getPhoneNumber(){
+    return this.StudentGroup.get("student")?.value.phoneNumber
   }
-  get gender(){
-    return this.StudentGroup.get('student.gender')
+  getGender(){
+    return this.StudentGroup.get("student")?.value.gender
   }
   
   Done() {
+      const stu =new Student(-1,this.getfullName(),this.getAge(),this.getAddress(),this.getPhoneNumber(),this.getGender())
+      this.studentService.addStudent(stu).subscribe(
+        Response =>{this.router.navigateByUrl('/students')
+       // ,alert("added successfully")
+      }
 
-      console.log(this.fullName?.value);
-      console.log(this.Age?.value);
-      console.log(this.Address?.value);
-      console.log(this.phoneNumber?.value);
-      console.log(this.gender?.value)
+      );
+      console.log(this.getfullName());
+      console.log(this.getAge());
+      console.log(this.getAddress());
+      console.log(this.getPhoneNumber());
+      console.log(this.getGender())
   }
 }

@@ -14,27 +14,16 @@ export class StudentService {
       map(Response=>Response)
     )
   }
-
-  /*old handeling
-  getStudents():Observable<Student[]> {
-    return this.httpStudent.get<GetResponseStudent>(this.urlstudents).pipe(
-      map(Response=>Response._embedded.students)
-    )
-  }*/
   removeStudent(id: number){
     //return this.httpStudent.delete(this.urlStudents + "?id=" + id)
     return this.httpStudent.delete(this.urlstudents + `?id=${id}`)
   }
-
-
-
-}
-
-/*old api server
-interface GetResponseStudent {
-  _embedded:{
-    students:Student[]
+  addStudent(student: Student){
+    return this.httpStudent.post(this.urlstudents,student);
   }
+
+
 }
-*/
+
+
 
