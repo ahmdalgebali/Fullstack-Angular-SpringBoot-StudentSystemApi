@@ -62,13 +62,18 @@ export class OptionsComponent implements OnInit {
   }
   
   Done() {
-      const stu =new Student(-1,this.getfullName(),this.getAge(),this.getAddress(),this.getPhoneNumber(),this.getGender())
-      this.studentService.addStudent(stu).subscribe(
-        Response =>{this.router.navigateByUrl('/students')
-       // ,alert("added successfully")
+      const stu =new Student(this.id,this.getfullName(),this.getAge(),this.getAddress(),this.getPhoneNumber(),this.getGender())
+      if (this.id == 0) {
+        this.studentService.addStudent(stu).subscribe(
+          Response =>{this.router.navigateByUrl('/students')
+         // ,alert("added successfully")
+        });
+      } else {
+        this.studentService.editStudent(stu,this.id).subscribe(
+          Response =>{this.router.navigateByUrl('/students')
+        });
       }
 
-      );
       //console.log(this.getfullName());
   }
 }

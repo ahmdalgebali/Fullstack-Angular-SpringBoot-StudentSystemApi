@@ -27,6 +27,10 @@ export class StudentService {
     );
   }
 
+  editStudent(student: Student,id: number){
+    return this.httpStudent.put(this.urlstudents + `?id=${id}` , student);
+  }
+
 }
 
 
