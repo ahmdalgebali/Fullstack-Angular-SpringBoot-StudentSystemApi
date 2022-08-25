@@ -21,7 +21,7 @@
           <td>{{stus.age}}</td>
           <td>{{stus.address}}</td>
         <td>
-            <button class="btn btn-success" routerLink="/options" >Update</button>
+            <button class="btn btn-success" routerLink="/options/{{stus.id}}" >Update</button>
             <button class="btn btn-primary" (click)="removeStudent(stus.id)">Delete</button>
         </td>
       </tr>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Student } from 'src/app/model/student';
 import { StudentService } from 'src/app/services/student.service';
 
@@ -11,12 +11,25 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class OptionsComponent implements OnInit {
   StudentGroup: FormGroup;
+  id: number;
+  myStudent: Student = new Student(0,"","","","","");
 
   constructor(private formBuilder: FormBuilder,
     private studentService:StudentService , 
-    private router:Router) { }
+    private router:Router,
+    private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
+    ngOnInit(): void {
+      //this.id = +this.route.snapshot.paramMap.get('id');
+      this.id = Number(this.route.snapshot.paramMap.get('id'));
+      if(this.id != 0){
+        this.studentService.getStudent(this.id).subscribe(
+          response => 
+            this.myStudent = response,
+        )
+      }
+
+
 
     this.StudentGroup = this.formBuilder.group({
       student: this.formBuilder.group({
@@ -56,10 +69,6 @@ export class OptionsComponent implements OnInit {
       }
 
       );
-      console.log(this.getfullName());
-      console.log(this.getAge());
-      console.log(this.getAddress());
-      console.log(this.getPhoneNumber());
-      console.log(this.getGender())
+      //console.log(this.getfullName());
   }
 }

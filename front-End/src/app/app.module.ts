@@ -16,10 +16,11 @@ import { LoginActivatedService } from './services/login-activated.service';
 const routes: Routes = [
 {path:'register', component:RegisterComponent,canActivate:[LoginActivatedService]},
 {path:'content', component:ContentComponent,canActivate:[LoginActivatedService]},
-  {path:'options',  component:OptionsComponent,canActivate:[RouteActivatedService] },
-  {path:'students', component:StudentsComponent,canActivate:[RouteActivatedService]},
-  {path:'', component:StudentsComponent,canActivate:[RouteActivatedService]},
-  {path:'**', component:StudentsComponent,canActivate:[RouteActivatedService]} 
+{path:'options',  component:OptionsComponent,canActivate:[RouteActivatedService] },
+{path:'options/:id',  component:OptionsComponent,canActivate:[RouteActivatedService] },
+{path:'students', component:StudentsComponent,canActivate:[RouteActivatedService]},
+{path:'', component:StudentsComponent,canActivate:[RouteActivatedService]},
+{path:'**', component:StudentsComponent,canActivate:[RouteActivatedService]} 
 
 ];
 

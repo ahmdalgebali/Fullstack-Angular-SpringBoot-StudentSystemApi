@@ -3,28 +3,28 @@
         <div class="input-group flex-nowrap ipu">
             <div class="input-group-prepend">
             </div>
-            <input formControlName="fullName" type="text"class="form-control"placeholder="Full Name"aria-label="Username"aria-describedby="addon-wrapping">
+            <input value="{{myStudent.fullName}}" formControlName="fullName" type="text"class="form-control"placeholder="Full Name"aria-label="Username"aria-describedby="addon-wrapping">
         </div>
 
         <div class="input-group flex-nowrap ipu">
             <div class="input-group-prepend">
             </div>
-            <input formControlName="Age" type="text" class="form-control" placeholder="Age" aria-label="Password"aria-describedby="addon-wrapping">
+            <input [value]="myStudent.age" formControlName="Age" type="text" class="form-control" placeholder="Age" aria-label="Password"aria-describedby="addon-wrapping">
         </div>
 
         <div class="input-group flex-nowrap ipu">
             <div class="input-group-prepend">
             </div>
-            <input formControlName="Address" type="text"class="form-control"placeholder="Address"aria-label="Username"aria-describedby="addon-wrapping">
+            <input [value]="myStudent.address" formControlName="Address" type="text"class="form-control"placeholder="Address"aria-label="Username"aria-describedby="addon-wrapping">
         </div>
 
         <div class="input-group flex-nowrap ipu">
             <div class="input-group-prepend">
             </div>
-            <input formControlName="phoneNumber" type="text" class="form-control" placeholder="Phone Number" aria-label="Password"aria-describedby="addon-wrapping">
+            <input [value]="myStudent.phone" formControlName="phoneNumber" type="text" class="form-control" placeholder="Phone Number" aria-label="Password"aria-describedby="addon-wrapping">
         </div>
 
-        <select formControlName="gender" class="form-select" aria-label="Default select example">
+        <select [value]="myStudent.gender" formControlName="gender" class="form-select" aria-label="Default select example">
             <option value="MALE">MALE</option>
             <option value="FEMALE">FEMALE</option>
         </select>
