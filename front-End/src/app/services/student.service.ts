@@ -21,6 +21,12 @@ export class StudentService {
       map(Response=>Response._embedded.students)
     )
   }*/
+  removeStudent(id: number){
+    //return this.httpStudent.delete(this.urlStudents + "?id=" + id)
+    return this.httpStudent.delete(this.urlstudents + `?id=${id}`)
+  }
+
+
 
 }
 
