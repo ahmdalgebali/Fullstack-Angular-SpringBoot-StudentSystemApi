@@ -29,7 +29,7 @@ public class StudentController {
     public List<Student> getStudent() {
         return studentService.getStudent();
     }
-
+//لاحظ مفيش s
     @GetMapping("student")
     public Student getStudentById(@RequestParam Long id) {
         return studentService.getStudentById(id);
