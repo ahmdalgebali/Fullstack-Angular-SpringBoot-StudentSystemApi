@@ -11,6 +11,7 @@ import { LoginService } from 'src/app/services/login.service';
 export class RegisterComponent implements OnInit {
 
   logInFormGroup: FormGroup;
+  invalidMessage:string;
   constructor(private formBuilder: FormBuilder,
               private loginService: LoginService,
               private route: Router) { }
@@ -33,13 +34,23 @@ export class RegisterComponent implements OnInit {
 
   
   OnSubmit() {
-    this.loginService.Login(this.userName?.value,this.password?.value)
+   const result= this.loginService.Login(this.userName?.value,this.password?.value)
+   if(result==true){
     this.route.navigateByUrl('students');
+   }else{
+    this.invalidMessage="Invalid Username or Password";
+    this.showMessage()
+   }
+    
       // console.log(this.userName?.value)
       // console.log(this.password?.value)
   }
 
-
+  showMessage(){
+    setTimeout(() => {
+      this.invalidMessage = ""
+    },3000)
+  }
 
 
 
