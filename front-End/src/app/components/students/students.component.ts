@@ -26,15 +26,28 @@ export class StudentsComponent implements OnInit {
 
   }
 
-
   removeStudent(id: number){
-
+    const index = this.students.findIndex(student => student.id == id);
+    
     this.studentService.removeStudent(id).subscribe(
       Response =>{
-        this.getStudent(),
-        this.message=`Deleted successfully id ${id}`
+        this.students.splice(index,1),
+        this.message=`Deleted successfully id ${id}`,
+        this.showMessage()
       }
     );
   }
+
+  showMessage(){
+    setTimeout(() => {
+      this.message = ""
+    },3000)
+  }
+
+
+
+
+
+
 
 }
