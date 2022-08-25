@@ -1,24 +1,37 @@
-<div class="input-group flex-nowrap ipu">
-    <div class="input-group-prepend">
-    </div>
-    <input type="text"class="form-control"placeholder="Full Name"aria-label="Username"aria-describedby="addon-wrapping">
-</div>
-<div class="input-group flex-nowrap ipu">
-    <div class="input-group-prepend">
-    </div>
-    <input type="text" class="form-control" placeholder="Age" aria-label="Password"aria-describedby="addon-wrapping">
-</div>
-<div class="input-group flex-nowrap ipu">
-    <div class="input-group-prepend">
-    </div>
-    <input type="text"class="form-control"placeholder="Address"aria-label="Username"aria-describedby="addon-wrapping">
-</div>
-<div class="input-group flex-nowrap ipu">
-    <div class="input-group-prepend">
-    </div>
-    <input type="text" class="form-control" placeholder="Phone Number" aria-label="Password"aria-describedby="addon-wrapping">
-</div>
+<form [formGroup]="StudentGroup" (ngSubmit)="Done()"> 
+    <div formGroupName="student">     
+        <div class="input-group flex-nowrap ipu">
+            <div class="input-group-prepend">
+            </div>
+            <input formControlName="fullName" type="text"class="form-control"placeholder="Full Name"aria-label="Username"aria-describedby="addon-wrapping">
+        </div>
 
-<div>
-    <button class="btn btn-primary">Edit</button>
-</div>
+        <div class="input-group flex-nowrap ipu">
+            <div class="input-group-prepend">
+            </div>
+            <input formControlName="Age" type="text" class="form-control" placeholder="Age" aria-label="Password"aria-describedby="addon-wrapping">
+        </div>
+
+        <div class="input-group flex-nowrap ipu">
+            <div class="input-group-prepend">
+            </div>
+            <input formControlName="Address" type="text"class="form-control"placeholder="Address"aria-label="Username"aria-describedby="addon-wrapping">
+        </div>
+
+        <div class="input-group flex-nowrap ipu">
+            <div class="input-group-prepend">
+            </div>
+            <input formControlName="phoneNumber" type="text" class="form-control" placeholder="Phone Number" aria-label="Password"aria-describedby="addon-wrapping">
+        </div>
+
+        <select formControlName="gender" class="form-select" aria-label="Default select example">
+            <option value="MALE">MALE</option>
+            <option value="FEMALE">FEMALE</option>
+        </select>
+    </div>
+
+        <div>
+            <button class="btn btn-primary">Done</button>
+        </div>
+
+</form>  

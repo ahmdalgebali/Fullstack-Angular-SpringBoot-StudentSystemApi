@@ -1,5 +1,13 @@
-input,
+input{
+    margin:20px;
+   }
 button
 {
- margin:50px;
+ margin:20px;
+}
+.form-select{
+    margin:20px;
+    padding: 5px;
+    border-color:#cdcdcd!important;
+
 }
