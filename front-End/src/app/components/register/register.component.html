@@ -1,18 +1,30 @@
-<div *ngIf="invalidMessage" class="alert alert-danger">{{invalidMessage}}</div>
 <form [formGroup]="logInFormGroup" (ngSubmit)="OnSubmit()">
+    <div *ngIf="invalidMessage" class="alert alert-danger">{{invalidMessage}}</div>
     <div formGroupName="admin">
         <div class="input-group flex-nowrap ipu">
             <div class="input-group-prepend">
             </div>
-            <input formControlName="userName" type="text"class="form-control"placeholder="Username"aria-label="Username"aria-describedby="addon-wrapping">
+            <input formControlName="userName" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping"> 
         </div>
+
+        <div class="inv"  *ngIf="userName?.invalid && (userName?.dirty || userName?.touched)">
+            <div *ngIf="userName?.errors!.required || userName?.errors!.noOnlyWithSpace" class="alert alert-danger">UserName required</div>
+            <div *ngIf="!userName?.errors!.noOnlyWithSpace && userName!.errors?.minlength" class="alert alert-danger">UserName must be more than 5 digts</div>
+          </div>
+
         <div class="input-group flex-nowrap ipu">
             <div class="input-group-prepend">
             </div>
-            <input formControlName="password" type="password" class="form-control" placeholder="Password" aria-label="Password"aria-describedby="addon-wrapping">
+            <input formControlName="password" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping">
         </div>
+
+        <div class="inv" *ngIf="password?.invalid  && (password?.dirty || password?.touched)">
+            <div *ngIf="password?.errors!.required" class="alert alert-danger">Password required</div>
+            <div *ngIf="password?.errors!.minlength" class="alert alert-danger">Password must be more than 5 digts</div>
+          </div>
+
     </div>
-        <div>
-            <button class="btn btn-primary">Log In</button>
-        </div>
+    <div>
+        <button class="btn btn-primary">Log In</button>
+    </div>
 </form>
