@@ -6,7 +6,7 @@
             </div>
             <input formControlName="userName" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping"> 
         </div>
-
+ 
         <div class="inv"  *ngIf="userName?.invalid && (userName?.dirty || userName?.touched)">
             <div *ngIf="userName?.errors!.required || userName?.errors!.noOnlyWithSpace" class="alert alert-danger">UserName required</div>
             <div *ngIf="!userName?.errors!.noOnlyWithSpace && userName!.errors?.minlength" class="alert alert-danger">UserName must be more than 5 digts</div>

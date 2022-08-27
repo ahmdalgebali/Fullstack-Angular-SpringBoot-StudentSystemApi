@@ -10,6 +10,7 @@ import { StudentService } from 'src/app/services/student.service';
   styleUrls: ['./options.component.css']
 })
 export class OptionsComponent implements OnInit {
+  invalidFullName: String;
   StudentGroup: FormGroup;
   id: number;
   myStudent: Student = new Student(0,"","","","","");
@@ -67,7 +68,12 @@ export class OptionsComponent implements OnInit {
         this.studentService.addStudent(stu).subscribe(
           Response =>{this.router.navigateByUrl('/students')
          // ,alert("added successfully")
-        });
+        },
+        error => {
+          this.invalidFullName = "Full Name alerdy Exist";
+          this.showMessage()
+        }
+        );
       } else {
         this.studentService.editStudent(stu,this.id).subscribe(
           Response =>{this.router.navigateByUrl('/students')
@@ -76,4 +82,13 @@ export class OptionsComponent implements OnInit {
 
       //console.log(this.getfullName());
   }
+
+  showMessage() {
+    setTimeout(() => {
+      this.invalidFullName = ""
+    }, 3000)
+  }
+
+
+  
 }
