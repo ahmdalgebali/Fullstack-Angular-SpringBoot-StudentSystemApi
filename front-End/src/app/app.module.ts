@@ -32,7 +32,7 @@ const routes: Routes = [
     RegisterComponent,
     StudentsComponent,
     OptionsComponent,
-    ContentComponent
+    ContentComponent,
   ],
   imports: [
     BrowserModule,
