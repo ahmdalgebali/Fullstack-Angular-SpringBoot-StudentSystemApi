@@ -1,10 +1,10 @@
 export class Student {
     id: number;
     fullName: string;
-    gender: string;
     age: string;
-    phone: string;
     address: string;
+    phone: string;
+    gender: string;
     dateCreated: Date;
     dateUpdated: Date;
     constructor(id: number, fullName: string, age: string, address: string, phone: string, gender: string) {

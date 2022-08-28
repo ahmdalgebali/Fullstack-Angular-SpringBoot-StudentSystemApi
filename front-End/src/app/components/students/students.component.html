@@ -12,13 +12,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let stus of students">
         <tr *ngFor="let stus of students">
           <th scope="row">{{stus.id}}</th>
           <td>{{stus.fullName}}</td>
-          <td>{{stus.phone}}</td>
           <td>{{stus.gender}}</td>
           <td>{{stus.age}}</td>
+          <td>{{stus.phone}}</td>
           <td>{{stus.address}}</td>
         <td>
             <button class="btn btn-success" routerLink="/options/{{stus.id}}" >Update</button>

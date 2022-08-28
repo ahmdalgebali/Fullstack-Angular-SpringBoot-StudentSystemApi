@@ -25,45 +25,46 @@ export class OptionsComponent implements OnInit {
       this.id = Number(this.route.snapshot.paramMap.get('id'));
       if(this.id != 0){
         this.studentService.getStudent(this.id).subscribe(
-          response => 
+          response => {
             this.myStudent = response,
+              this.StudentGroup.get("student.fullName")?.patchValue(response.fullName),
+              this.StudentGroup.get("student.age")?.patchValue(response.age),
+              this.StudentGroup.get("student.address")?.patchValue(response.address),
+              this.StudentGroup.get("student.phone")?.patchValue(response.phone),
+              this.StudentGroup.get("student.gender")?.patchValue(response.gender)
+          }
         )
       }
-
-
 
     this.StudentGroup = this.formBuilder.group({
       student: this.formBuilder.group({
         fullName: [''],
-        Age: [''],
-        Address: [''],
-        phoneNumber: [''],
+        age: [''],
+        address: [''],
+        phone: [''],
         gender: ['MALE']
       })
-
-
     });
   }
 
-
-  getfullName(){
+  getFullName(){
     return this.StudentGroup.get("student")?.value.fullName
   }
   getAge(){
-    return this.StudentGroup.get("student")?.value.Age
+    return this.StudentGroup.get("student")?.value.age
   }
   getAddress(){
-    return this.StudentGroup.get("student")?.value.Address
+    return this.StudentGroup.get("student")?.value.address
   }
-  getPhoneNumber(){
-    return this.StudentGroup.get("student")?.value.phoneNumber
+  getPhone(){
+    return this.StudentGroup.get("student")?.value.phone
   }
   getGender(){
     return this.StudentGroup.get("student")?.value.gender
   }
   
   Done() {
-      const stu =new Student(this.id,this.getfullName(),this.getAge(),this.getAddress(),this.getPhoneNumber(),this.getGender())
+      const stu =new Student(this.id,this.getFullName(),this.getAge(),this.getAddress(),this.getPhone(),this.getGender())
       if (this.id == 0) {
         this.studentService.addStudent(stu).subscribe(
           Response =>{this.router.navigateByUrl('/students')
