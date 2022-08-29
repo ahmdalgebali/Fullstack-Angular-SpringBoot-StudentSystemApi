@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Spacevalidator } from 'src/app/model/spacevalidator';
 import { Student } from 'src/app/model/student';
 import { StudentService } from 'src/app/services/student.service';
 
@@ -38,13 +39,29 @@ export class OptionsComponent implements OnInit {
 
     this.StudentGroup = this.formBuilder.group({
       student: this.formBuilder.group({
-        fullName: [''],
-        age: [''],
-        address: [''],
-        phone: [''],
+        fullName: new FormControl('', [Validators.required, Validators.minLength(5), Spacevalidator.noOnlyWithSpace]),
+        age: new FormControl('', [Validators.required, Validators.maxLength(2), Validators.pattern("^[0-9]*$"), Spacevalidator.noOnlyWithSpace]),
+        address: new FormControl('', [Validators.required, Spacevalidator.noOnlyWithSpace]),
+        phone: new FormControl('', [Validators.required, Validators.maxLength(11), Validators.minLength(11), Validators.pattern("^[0-9]*$"), Spacevalidator.noOnlyWithSpace]),
         gender: ['MALE']
       })
     });
+  }
+
+  get fullName() {
+    return this.StudentGroup.get("student.fullName");
+  }
+  get age() {
+    return this.StudentGroup.get("student.age");
+  }
+  get address() {
+    return this.StudentGroup.get("student.address");
+  }
+  get phone() {
+    return this.StudentGroup.get("student.phone");
+  }
+  get gender() {
+    return this.StudentGroup.get("student.gender");
   }
 
   getFullName(){
