@@ -39,7 +39,7 @@
         </div>
                 <div class="inv"  *ngIf="phone?.invalid && (phone?.dirty || phone!.touched)">
                     <div *ngIf="phone?.errors!.required || phone?.errors!.noOnlyWithSpace" class="alert alert-danger error">phone required</div>
-                    <div *ngIf="!phone?.errors!.noOnlyWithSpace && phone?.errors!.maxlength" class="alert alert-danger error">phone must be only 11 digts</div>
+                    <div *ngIf="!phone?.errors!.noOnlyWithSpace && (phone?.errors!.maxlength || phone?.errors!.minlength)" class="alert alert-danger error">phone must be only 11 digts</div>
                     <div *ngIf="phone?.errors!.pattern" class="alert alert-danger error">phone must include only number</div>
                 </div>        
 

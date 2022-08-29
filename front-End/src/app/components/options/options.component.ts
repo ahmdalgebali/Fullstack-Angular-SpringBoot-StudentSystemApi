@@ -82,6 +82,9 @@ export class OptionsComponent implements OnInit {
   
   Done() {
       const stu =new Student(this.id,this.getFullName(),this.getAge(),this.getAddress(),this.getPhone(),this.getGender())
+      if (this.StudentGroup.invalid) {
+        this.StudentGroup.markAllAsTouched();
+      } else {
       if (this.id == 0) {
         this.studentService.addStudent(stu).subscribe(
           Response =>{this.router.navigateByUrl('/students')
@@ -91,13 +94,13 @@ export class OptionsComponent implements OnInit {
           this.invalidFullName = "Full Name alerdy Exist";
           this.showMessage()
         }
-        );
+        )
       } else {
         this.studentService.editStudent(stu,this.id).subscribe(
           Response =>{this.router.navigateByUrl('/students')
         });
       }
-
+    }
       //console.log(this.getfullName());
   }
 
