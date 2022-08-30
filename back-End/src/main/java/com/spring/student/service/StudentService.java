@@ -1,7 +1,6 @@
 package com.spring.student.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.spring.student.doa.StudentRepository;
@@ -38,6 +37,10 @@ public class StudentService {
 
     }
 
-
+    public List<Student> findByFullName(String fullname){
+        
+        return this.studentRepository.findByFullName(fullname);
+        
+    }
 
 }

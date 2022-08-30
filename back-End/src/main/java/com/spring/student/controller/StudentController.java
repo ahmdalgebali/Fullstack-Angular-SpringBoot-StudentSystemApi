@@ -52,4 +52,10 @@ public class StudentController {
         studentService.removeStudent(id);
     }
 
+    
+    // http://localhost:8080/system/students/searchname?fullname=Eslam Khder
+    @GetMapping("students/searchname")
+    public List<Student> findByFullName (@RequestParam String fullname){
+        return this.studentService.findByFullName(fullname);
+    }
 }
