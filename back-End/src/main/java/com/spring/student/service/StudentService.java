@@ -39,7 +39,7 @@ public class StudentService {
 
     public List<Student> findByFullName(String fullname){
         
-        return this.studentRepository.findByFullName(fullname);
+        return this.studentRepository.findByFullNameContaining(fullname);
         
     }
 

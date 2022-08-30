@@ -11,6 +11,6 @@ import com.spring.student.model.Student;
 @Repository
 public interface StudentRepository extends JpaRepository <Student,Long> {
 
-    public List<Student> findByFullName(String fullname);
+    public List<Student> findByFullNameContaining(String fullname);
   
 }
