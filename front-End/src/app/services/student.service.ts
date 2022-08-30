@@ -31,6 +31,14 @@ export class StudentService {
     return this.httpStudent.put(this.urlstudents + `?id=${id}` , student);
   }
 
+  getStudentByName(name: string): Observable<Student[]>{
+    return this.httpStudent.get<Student[]>(this.urlstudents + `/searchname?fullname=${name}`).pipe(
+      map(response => response)
+    )
+  }
+
+
+
 }
 
 

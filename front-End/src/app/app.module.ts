@@ -19,6 +19,7 @@ const routes: Routes = [
 {path:'options',  component:OptionsComponent,canActivate:[RouteActivatedService] },
 {path:'options/:id',  component:OptionsComponent,canActivate:[RouteActivatedService] },
 {path:'students', component:StudentsComponent,canActivate:[RouteActivatedService]},
+{path:'students/:name', component:StudentsComponent,canActivate:[RouteActivatedService]},
 {path:'', component:StudentsComponent,canActivate:[RouteActivatedService]},
 {path:'**', component:StudentsComponent,canActivate:[RouteActivatedService]} 
 

@@ -11,8 +11,8 @@
         </li>
       </ul>
       <form *ngIf="isAuthenticaterUser()" class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input #name class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"  (click)="done(name.value)">Search</button>
       </form>
       <div class="control">
         <button *ngIf="!isAuthenticaterUser()" class="btn btn-outline-success my-2my-sa-8" routerLink="register" type="submit">Log In</button>
