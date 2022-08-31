@@ -31,8 +31,8 @@ export class StudentService {
     return this.httpStudent.put(this.urlstudents + `?id=${id}` , student);
   }
 
-  getStudentByName(name: string): Observable<Student[]>{
-    return this.httpStudent.get<Student[]>(this.urlstudents + `/searchname?fullname=${name}`).pipe(
+  getStudentByName(name: String,page: number,size: number): Observable<Student[]>{
+    return this.httpStudent.get<Student[]>(this.urlstudents + `/searchname?fullname=${name}&page=${page}&size=${size}`).pipe(
       map(response => response)
     )
   }
@@ -43,12 +43,11 @@ export class StudentService {
     );
   }
 
-
-  // getStudentSizeByName(name: string): Observable<number>{
-  //   return this.httpStudent.get<number>(this.urlstudents + `/lengthname?name=${name}`).pipe(
-  //     map(response => response)
-  //   );
-  // }
+  getStudentSizeByName(name: string): Observable<number>{
+    return this.httpStudent.get<number>(this.urlstudents + `/lengthname?name=${name}`).pipe(
+      map(response => response)
+    );
+  }
 
 
 }

@@ -18,4 +18,6 @@ public interface StudentRepository extends JpaRepository <Student,Long> {
     @Query("select COUNT(id) from student")
     public Long getStudentsLength();
     
+    @Query("select COUNT(id) from student where fullName LIKE %?1%")
+    public Long getStudentsLengthByName(String name);
 }

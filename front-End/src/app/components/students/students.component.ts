@@ -13,8 +13,9 @@ export class StudentsComponent implements OnInit {
   students: Student[] = [];
   message:String;
   page:number = 1;
-  size:number = 7;
+  size:number = 1;
   numElement:number;
+  fullname: string | null ;
 
   constructor(private studentService:StudentService,private route: ActivatedRoute) { }
 
@@ -22,8 +23,8 @@ export class StudentsComponent implements OnInit {
     this.route.paramMap.subscribe(() =>{
       const result = this.route.snapshot.paramMap.has("name");
       if (result == true) {
-        const name = this.route.snapshot.paramMap.get("name");
-        this.getStudentByName(name!)
+        this.fullname = this.route.snapshot.paramMap.get("name");
+        this.getStudentByName()
       } else {
         this.getStudents();
       }
@@ -33,9 +34,11 @@ export class StudentsComponent implements OnInit {
 
   getStudents(){
     this.studentService.getStudents(this.page-1,this.size).subscribe(
-      data =>this.students = data
+      data =>{this.students = data,
+      this.getElementsStudents();
+      }
     );
-    this.getElementsStudents();
+    
   }
 
   getElementsStudents() {
@@ -43,14 +46,18 @@ export class StudentsComponent implements OnInit {
        data => this.numElement = data
     );
   }
-  
-  getStudentByName(name:string){ // ah
-    this.studentService.getStudentByName(name).subscribe(
+
+  getElementsStudentsByName() {
+    return this.studentService.getStudentSizeByName(this.fullname!).subscribe(
+      data => this.numElement = data
+    );
+  }
+  getStudentByName(){ // ah
+    this.studentService.getStudentByName(this.fullname!,this.page - 1,this.size).subscribe(
       data => {
-        this.students = data   
-        //alert(data[0].fullName)
-        //this.getElementsStudentsByName()
-      }    
+        this.students = data,
+        this.getElementsStudentsByName()
+      }
     );
   }
 
@@ -73,14 +80,13 @@ export class StudentsComponent implements OnInit {
   }
 
   done() {
-    // const result = this.route.snapshot.paramMap.has("name");
-    // if (result == true) {
-    //   this.getStudentByName()
-    // } else {
-       this.getStudents();
-    // }
+      const result = this.route.snapshot.paramMap.has("name");
+      if (result == true) {
+         this.getStudentByName()
+      } else {
+        this.getStudents();
+      }
   }
-
 
 
 
