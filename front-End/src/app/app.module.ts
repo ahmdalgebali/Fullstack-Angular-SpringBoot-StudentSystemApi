@@ -13,6 +13,7 @@ import { RouteActivatedService } from './services/route-activated.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContentComponent } from './components/content/content.component';
 import { LoginActivatedService } from './services/login-activated.service';
+import {NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
 const routes: Routes = [
 {path:'register', component:RegisterComponent,canActivate:[LoginActivatedService]},
 {path:'content', component:ContentComponent,canActivate:[LoginActivatedService]},
@@ -40,7 +41,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
