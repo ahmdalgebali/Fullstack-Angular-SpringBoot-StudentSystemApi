@@ -25,11 +25,12 @@ public class StudentController {
         this.studentService = studentService;
     }
 
+    // http://localhost:8080/system/students
     @GetMapping("students")
-    public List<Student> getStudent() {
-        return studentService.getStudent();
+    public List<Student> getStudents(@RequestParam int page,@RequestParam int size){
+        return studentService.getStudents(page,size);
     }
-//لاحظ مفيش s
+    //لاحظ مفيش s
     @GetMapping("student")
     public Student getStudentById(@RequestParam Long id) {
         return studentService.getStudentById(id);
