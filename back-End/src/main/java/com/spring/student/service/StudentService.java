@@ -46,5 +46,7 @@ public class StudentService {
         return this.studentRepository.findByFullNameContaining(fullname);
 
     }
-
+    public Long getStudentsLength(){
+        return studentRepository.getStudentsLength();
+    }
 }
