@@ -9,10 +9,10 @@ export class StudentService {
   private urlstudents=`http://localhost:8080/system/students`;
   constructor(private httpStudent:HttpClient) { }
 
-  getStudents():Observable<Student[]> {
-    return this.httpStudent.get<Student[]>(this.urlstudents).pipe(
+  getStudents(page:number,size:number):Observable<Student[]> {
+    return this.httpStudent.get<Student[]>(this.urlstudents+ `?page=${page}&size=${size}`).pipe(
       map(Response=>Response)
-    )
+    );
   }
   removeStudent(id: number){
     //return this.httpStudent.delete(this.urlStudents + "?id=" + id)
