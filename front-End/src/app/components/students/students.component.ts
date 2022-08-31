@@ -11,7 +11,7 @@ import { StudentService } from 'src/app/services/student.service';
 export class StudentsComponent implements OnInit {
 
   students: Student[] = [];
-  message:String;
+  message:string;
   page:number = 1;
   size:number = 1;
   numElement:number;
