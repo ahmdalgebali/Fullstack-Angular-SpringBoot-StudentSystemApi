@@ -37,6 +37,18 @@ export class StudentService {
     )
   }
 
+  getStudentsSize(): Observable<number> {
+    return this.httpStudent.get<number>(this.urlstudents + `/length`).pipe(
+      map(response => response)
+    );
+  }
+
+
+  // getStudentSizeByName(name: string): Observable<number>{
+  //   return this.httpStudent.get<number>(this.urlstudents + `/lengthname?name=${name}`).pipe(
+  //     map(response => response)
+  //   );
+  // }
 
 
 }

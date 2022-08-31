@@ -13,8 +13,8 @@ export class StudentsComponent implements OnInit {
   students: Student[] = [];
   message:String;
   page:number = 1;
-  size:number = 4;
-  numElement:number=10;
+  size:number = 7;
+  numElement:number;
 
   constructor(private studentService:StudentService,private route: ActivatedRoute) { }
 
@@ -31,21 +31,27 @@ export class StudentsComponent implements OnInit {
 
   }
 
-  getStudentByName(name:string){ // ah
-    this.studentService.getStudentByName(name).subscribe(
-      data => {
-        this.students = data
-        //alert(data[0].fullName)
-        //this.getElementsStudentsByName()
-      }
-    );
-  }
-  
   getStudents(){
     this.studentService.getStudents(this.page-1,this.size).subscribe(
       data =>this.students = data
     );
+    this.getElementsStudents();
+  }
 
+  getElementsStudents() {
+    return this.studentService.getStudentsSize().subscribe(
+       data => this.numElement = data
+    );
+  }
+  
+  getStudentByName(name:string){ // ah
+    this.studentService.getStudentByName(name).subscribe(
+      data => {
+        this.students = data   
+        //alert(data[0].fullName)
+        //this.getElementsStudentsByName()
+      }    
+    );
   }
 
   removeStudent(id: number){
