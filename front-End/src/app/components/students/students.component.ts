@@ -13,7 +13,7 @@ export class StudentsComponent implements OnInit {
   students: Student[] = [];
   message:string;
   page:number = 1;
-  size:number = 1;
+  size:number = 7;
   numElement:number;
   fullname: string | null ;
 

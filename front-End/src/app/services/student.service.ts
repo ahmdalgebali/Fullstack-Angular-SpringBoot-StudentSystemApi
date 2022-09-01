@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Student } from '../model/student';
 import { map, Observable } from 'rxjs';
 @Injectable({
@@ -48,7 +48,6 @@ export class StudentService {
       map(response => response)
     );
   }
-
 
 }
 

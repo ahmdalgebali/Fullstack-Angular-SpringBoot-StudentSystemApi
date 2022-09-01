@@ -8,12 +8,13 @@ import { RegisterComponent } from './components/register/register.component';
 import { StudentsComponent } from './components/students/students.component';
 import { OptionsComponent } from './components/options/options.component';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouteActivatedService } from './services/route-activated.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContentComponent } from './components/content/content.component';
 import { LoginActivatedService } from './services/login-activated.service';
 import {NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
+import { HttpIntercepterBaseAuthService } from './services/http/http-intercepter-base-auth.service';
 const routes: Routes = [
 {path:'register', component:RegisterComponent,canActivate:[LoginActivatedService]},
 {path:'content', component:ContentComponent,canActivate:[LoginActivatedService]},
@@ -44,7 +45,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     NgbPaginationModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS,useClass: HttpIntercepterBaseAuthService,multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
