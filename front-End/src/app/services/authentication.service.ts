@@ -11,15 +11,19 @@ export class AuthenticationService {
   constructor(private httpStudent:HttpClient) { }
 
   executeAuthentication(username: string , password: string){
+    console.log(username)
+    console.log(password)
+    
  let basicAuthHeaderString = `Basic ` + window.btoa(username + `:` + password); // 64
     let header = new HttpHeaders({
-      Authorization: basicAuthHeaderString
+       authorization: basicAuthHeaderString
     })
 
     return this.httpStudent.get<AuthenticationBean>(`${API_URL}/basicauth`,{headers:header}).pipe(
       map(
         response => {
           console.log(response.message)
+
           sessionStorage.setItem(`${AUTHENTICATION}`,username);
           sessionStorage.setItem(`${TOKEN}`,basicAuthHeaderString);
           return response;
@@ -47,9 +51,8 @@ export class AuthenticationService {
 
 }
 
-export class AuthenticationBean{
 
-  constructor(private _message: string) {
+rivate _message: string) {
   }
 
   get message(): string {
