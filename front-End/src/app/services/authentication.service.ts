@@ -52,7 +52,9 @@ export class AuthenticationService {
 }
 
 
-rivate _message: string) {
+export class AuthenticationBean{
+
+  constructor(private _message: string) {
   }
 
   get message(): string {
