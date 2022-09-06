@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Student } from '../model/student';
 import { map, Observable } from 'rxjs';
+import { API_URL } from '../app.constance';
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
-  private urlstudents=`http://localhost:8080/system/students`;
+  private urlstudents=`${API_URL}/system/students`;
   constructor(private httpStudent:HttpClient) { }
 
   getStudents(page:number,size:number):Observable<Student[]> {
@@ -22,7 +23,7 @@ export class StudentService {
     return this.httpStudent.post(this.urlstudents,student);
   }
   getStudent(id: number): Observable<Student>{
-    return this.httpStudent.get<Student>(`http://localhost:8080/system/student?id=${id}`).pipe(
+    return this.httpStudent.get<Student>(`${API_URL}/system/student?id=${id}`).pipe(
       map(response => response)
     );
   }

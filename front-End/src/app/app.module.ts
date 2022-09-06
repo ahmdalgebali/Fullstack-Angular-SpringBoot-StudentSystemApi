@@ -8,7 +8,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { StudentsComponent } from './components/students/students.component';
 import { OptionsComponent } from './components/options/options.component';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouteActivatedService } from './services/route-activated.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContentComponent } from './components/content/content.component';
