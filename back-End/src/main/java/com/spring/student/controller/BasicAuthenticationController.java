@@ -13,5 +13,9 @@ public class BasicAuthenticationController {
     public AuthenticationBean BasicAuthentication(){
         return new AuthenticationBean ("you are Authenticated");
     }
-
+    
+    @GetMapping("/main")
+    public String Main(){
+        return "yes";
+    }
 }

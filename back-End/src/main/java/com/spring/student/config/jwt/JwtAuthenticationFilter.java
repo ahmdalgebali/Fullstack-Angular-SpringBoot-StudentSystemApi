@@ -47,13 +47,11 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         // Authenticate user
         Authentication auth = authenticationManager.authenticate(authenticationToken);
-
         return auth;
     }
 
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
-
         // Create JWT Token
         String token = JWT.create()
                 .withSubject("abogabal701")

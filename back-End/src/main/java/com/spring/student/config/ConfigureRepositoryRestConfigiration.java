@@ -30,7 +30,7 @@ public class ConfigureRepositoryRestConfigiration implements RepositoryRestConfi
         this.exposeIds(config);
     }
 
-    public void displeHttpMethod(Class theClass, RepositoryRestConfiguration config, HttpMethod[] unsupportedMethod) {
+    public void displeHttpMethod(Class<?> theClass, RepositoryRestConfiguration config, HttpMethod[] unsupportedMethod) {
         config.getExposureConfiguration()
                 .forDomainType(theClass)
                 .withItemExposure(((metdata, httpMethods) -> httpMethods.disable(unsupportedMethod)))
@@ -39,12 +39,12 @@ public class ConfigureRepositoryRestConfigiration implements RepositoryRestConfi
 
     public void exposeIds(RepositoryRestConfiguration config) {
         Set<EntityType<?>> entities = entityManager.getMetamodel().getEntities();
-        List<Class> entityClasses = new ArrayList<>();
-        for (EntityType tempEntityType : entities) {
+        List<Class<?>> entityClasses = new ArrayList<>();
+        for (EntityType<?> tempEntityType : entities) {
             entityClasses.add(tempEntityType.getJavaType());
         }
 
-        Class[] domainTypes = entityClasses.toArray(new Class[0]);
+        Class<?>[] domainTypes = entityClasses.toArray(new Class[0]);
         config.exposeIdsFor(domainTypes);
     }
 

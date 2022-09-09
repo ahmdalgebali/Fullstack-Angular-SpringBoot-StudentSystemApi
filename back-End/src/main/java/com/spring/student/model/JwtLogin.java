@@ -5,8 +5,8 @@ public class JwtLogin {
 
     private String password;
 
-    public JwtLogin(String username) {
-        this.username = username;
+    public JwtLogin() {
+
     }
 
     public String getUsername() {return username;}
