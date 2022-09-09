@@ -8,8 +8,8 @@
             <input value="{{myStudent.fullName}}" formControlName="fullName" type="text"class="form-control"placeholder="Full Name"aria-label="Username"aria-describedby="addon-wrapping">
         </div>
                 <div class="inv"  *ngIf="fullName?.invalid && (fullName?.dirty || fullName?.touched)">
-                    <div *ngIf="fullName?.errors!.required || fullName?.errors!.noOnlyWithSpace" class="alert alert-danger">Full Name required</div>
-                    <div *ngIf="!fullName?.errors!.noOnlyWithSpace && fullName!.errors?.minlength" class="alert alert-danger">Full Name must be more than 5 digts</div>
+                    <div *ngIf="fullName?.errors!.required || fullName?.errors!.noOnlyWithSpace" class="alert alert-danger error">Full Name required</div>
+                    <div *ngIf="!fullName?.errors!.noOnlyWithSpace && fullName!.errors?.minlength" class="alert alert-danger error">Full Name must be more than 5 digts</div>
                 </div>
 
         <div class="input-group flex-nowrap ipu">
@@ -29,7 +29,7 @@
             <input [value]="myStudent.address" formControlName="address" type="text"class="form-control"placeholder="Address"aria-label="Username"aria-describedby="addon-wrapping">
         </div>
                 <div class="inv"  *ngIf="address?.invalid && (address?.dirty || address?.touched)">
-                    <div *ngIf="address?.errors!.required || address?.errors!.noOnlyWithSpace" class="alert alert-danger">address required</div>
+                    <div *ngIf="address?.errors!.required || address?.errors!.noOnlyWithSpace" class="alert alert-danger error">address required</div>
                 </div>
 
         <div class="input-group flex-nowrap ipu">

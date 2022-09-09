@@ -1,24 +1,27 @@
 input{
-    margin:20px;
-   }
-button
-{
- margin:20px;
-}
+    margin: 30px 20px 20px 20px;
+       border-radius: 0.4rem!important;
+  }
+
 .form-select{
-    margin:20px;
+    margin:30px 20px 0px 20px;
     padding: 5px;
     border-color:#cdcdcd!important;
+    border-radius: 0.4rem;
+}
 
-}
-.inv
+button
 {
-  margin: 27px 50px 0px 43px;
+  margin: 30px;
+  border-radius: 0.4rem;
 }
-.alert {
-    position: relative;
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-    border-radius: 8.25rem;
+
+.error
+{
+  margin: 15px 20px -15px 20px;
+  padding: 0rem 1.00rem;
+  border-radius: 0.4rem;
 }
+
+
+
